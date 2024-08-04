@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis-plus-test?useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+  web:
+    cors:
+      allowed-origins: "http://localhost:8080"
+      allowed-methods: "GET,POST,PUT,DELETE"
+      allowed-headers: "*"
+      allow-credentials: true
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-handlers-package: com.example.demo.config
+  mapper-locations: classpath:/mapper/**/*.xml
+#  type-aliases-package: com.example.demo.entity
+server:
+  port: 8081
+  servlet:
+    context-path: /myapp

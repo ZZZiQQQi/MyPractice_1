@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.studentdemo.mapper.StudentMapper">
+
+    <sql id="stuColums">
+        id,name,birthday,sex
+    </sql>
+
+    <select id="selectByIds" resultType="com.example.studentdemo.entity.Student">
+        select <include refid="stuColums"></include>
+            from student
+        where id in
+        <foreach collection="collection" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+
+    </select>
+    <!-- SQL 映射语句定义 -->
+</mapper>
