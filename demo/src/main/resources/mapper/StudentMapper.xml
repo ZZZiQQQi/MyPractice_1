@@ -5,6 +5,11 @@
     <sql id="stuColums">
         id,name,birthday,sex
     </sql>
+    <insert id="add">
+        insert into Student (name,birthday,sex)
+        values
+        (#{name},#{birthday},#{sex})
+    </insert>
 
     <select id="selectByIds" resultType="com.example.studentdemo.entity.Student">
         select <include refid="stuColums"></include>

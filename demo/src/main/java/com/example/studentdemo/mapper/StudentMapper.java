@@ -10,4 +10,5 @@ public interface StudentMapper {
     List<Student> selectByIds(List<Integer> ids);
 
 
+    void add(Student student);
 }

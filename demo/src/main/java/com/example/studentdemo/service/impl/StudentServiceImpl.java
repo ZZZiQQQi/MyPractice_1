@@ -19,4 +19,9 @@ public class StudentServiceImpl implements StudentService {
 
         return studentMapper.selectByIds(ids);
     }
+
+    @Override
+    public void add(Student student) {
+        studentMapper.add(student);
+    }
 }
