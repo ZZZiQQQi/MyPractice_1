@@ -119,6 +119,12 @@
             <version>1.2.76</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version> <!-- 最新版依赖可参考Maven Central -->
+        </dependency>
+
 
     </dependencies>
 

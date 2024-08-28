@@ -12,6 +12,9 @@ spring:
       allowed-methods: "GET,POST,PUT,DELETE"
       allowed-headers: "*"
       allow-credentials: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 
 mybatis-plus:
   configuration:
@@ -23,3 +26,10 @@ server:
   port: 8081
   servlet:
     context-path: /myapp
+
+address: http://localhost:8081/myapp
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+
