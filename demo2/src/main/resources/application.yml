@@ -1,6 +1,7 @@
+
 spring:
   application:
-    name: demo
+    name: demo2
   datasource:
     url: jdbc:mysql://localhost:3306/mybatis-plus-test?useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,7 +10,7 @@ spring:
   web:
     cors:
       allowed-origins: "*"
-      allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+      allowed-methods: "GET,POST,PUT,DELETE"
       allowed-headers: "*"
       allow-credentials: true
   mvc:
@@ -23,7 +24,7 @@ mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
 #  type-aliases-package: com.example.demo.entity
 server:
-  port: 8081
+  port: 8082
   servlet:
     context-path: /myapp
 
@@ -33,4 +34,5 @@ logging:
   level:
     org.springframework.web.client.RestTemplate: DEBUG
 
-remoteUrl: ws://localhost:8082/myapp/websocket2
+
+
