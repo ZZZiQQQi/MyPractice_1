@@ -2,13 +2,11 @@ package com.example.httpclient;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.studentdemo.entity.Student;
+import io.swagger.annotations.ApiOperation;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -23,19 +21,16 @@ public class RestTemplateTest {
     @PostMapping("student/add")
     public void post(@RequestBody JSONObject jsonObject) {
 
-        RestTemplate restTemplate = new RestTemplate();
+        String url = address + "/student/add";
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
+        ResponseEntity responseEntity = RestTemplateUtils.postJson(url,jsonObject, Student.class);
 
-        HttpEntity<JSONObject> entity = new HttpEntity<>(jsonObject, headers);
+        System.out.println(responseEntity.getBody());
+    }
 
-        System.out.println(address+"/student/add");
+    @GetMapping("student/students")
+    public void getStudents(@RequestParam("id") Integer id) {
 
-        ResponseEntity<Student> response =
-                restTemplate.exchange(address+"/student/add", HttpMethod.POST,entity,Student.class);
 
-        System.out.println(response.getHeaders().getContentType());
-        System.out.println(response.getBody());
     }
 }
